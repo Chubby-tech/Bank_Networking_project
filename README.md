@@ -1,113 +1,338 @@
-# Bank_Networking_project
-This is a banking and insurance networking project 
+# Radeon Company Enterprise Network Infrastructure Design
 
-Enterprise networking Project #5
- 
-Radeon Company Ltd. is a US-owned company that deals with Banking and Insurance. The company is intending to expand its services across the African continent having the first branch to be located in Nairobi, Kenya. The company has secured a four-story building to operate within the Kenyan capital city. Therefore, the company would like to allow sourcing the knowledge from a group of final-year students from the local university to design and implement their company network. Assume you are among the students to take over this role, carefully read down the requirements then model the design and implement the network based on the company's needs. Each floor has departments as provided in the table below.
- 
- 
- 
-First Floor
- 
-No.       Departments              No of Pc           No of printers
- 
-1 ​  Management                  20                  4
- 
-2         Research ​               20​          4
- 
-3         Human Resources    ​​20                4
- 
- 
-Second floor
- 
- 
- 
-No.​​Departments​​No of Pc ​​No of printers
- 
-1​​Marketing ​​20​​​​4
- 
-2​​Accounting ​​20​​​​4
- 
-3​​Finance ​​20​​​​4
- 
- 
-Third Floor
- 
- 
- 
-No.​​Departments​​​​No of Pc ​​​No of printers
- 
-1​​Logistics and store ​​​20​​​​​4
- 
-2​​Customer care ​​​​20​​​​​4
- 
-3​​Guest area ​​​​20​​​​​2
- 
- 
-Fourth floor
- 
- 
-No.​​Departments​​​No of Pc ​​​No of printers ​​​No of servers
- 
-1​​Administration ​​​20​​​​​2
- 
- 
-2​​ICT ​​​​20​​​​​2
- 
- 
-3 ​​Server room​​​2 Admin PCs ​​​​​​​3(Dhcp,Http,email)
- 
- 
- 
-Requirements:
- 
-Curutech Solutions
- 
-1. Use a software modeling tool to visualize the network topology (consider requirement 3)
- 
-Software Modelling Tools: MS Visio, Visual Paradigm, or Draw.io for modeling network design.
- 
-2. Use any of the following network simulation software to implement the above topology:
- 
-Simulation software: Cisco Packet tracer or GNS3 for design and implementation.
-There should be one router on each floor. The router should be connecting switches on that floor.
-Use OSPF as the routing protocol to advertise routes.
-Each department is required to have a wireless network for the users.
-Each department except the server room will be anticipated to have around 60 users both
-wired and wireless users.
- 
-Host devices in the network are required to obtain IPv4 addresses automatically.
-Devices in all the departments are required to communicate with each other.
-All devices in the network are expected to obtain an IP address dynamically from the dedicated DHCP servers located at the server room.
-Create HTTP. and E-mail servers
-Configure SSH in all the routers for remote login.
-3. Use hierarchical network design with redundancy included:
- 
-Having core, distribution, and access layers.
-4. Configure the basic configuration of the devices:
- 
-Hostnames
-Line Console and VTY passwords
-Banner messages
-Disable domain IP lookup
-5. Each department should be in a different VLAN
- 
-Create VLANs in every department
-VLANs you will use in your case, including VLANI also e.g. 10, 20, 30... etc.
-Each VLAN should be a different subnetwork.
-6. Planning of IP Addresses:
- 
-You have been given 192.168.10.0 as the base address for this network.
-AND 10.10.10.10.0 for the routing
-Do subnetting based on the number of hosts in every department as provided above.
-Identify subnet mask, useable IP address range, and broadcast address for each subnet.
-7. End Device Configurations:
- 
-Configure all the end devices in the network with the appropriate IP address based on the calculations above.
- 
-9. Test Communication:
- 
-Do devices in the same VLAN communicate?
-Do the devices in different VLANs communicate?
-10. Document the project design and implementation
- 
+## Overview
+
+This project demonstrates the design and implementation of a scalable enterprise network infrastructure for Radeon Company Ltd., a United States-based Banking and Insurance organization expanding operations into Africa with its first regional branch located in Nairobi, Kenya.
+
+The solution was developed using Cisco Packet Tracer and follows industry-standard enterprise networking practices including hierarchical network architecture, VLAN segmentation, dynamic routing, centralized services, wireless networking, and network redundancy.
+
+The network was designed to support multiple departments distributed across four floors while ensuring scalability, availability, and efficient communication throughout the organization.
+
+---
+
+## Business Scenario
+
+Radeon Company Ltd. is establishing a new regional office in Nairobi, Kenya to support its African operations.
+
+The company acquired a four-story office building and requires a modern enterprise network infrastructure capable of supporting:
+
+* Banking Operations
+* Insurance Services
+* Internal Business Applications
+* Wireless Connectivity
+* Centralized Network Services
+* Future Business Growth
+
+The network was designed to provide secure communication between all departments while maintaining proper segmentation and centralized management.
+
+---
+
+## Building Structure
+
+### First Floor
+
+#### Management Department
+
+* 20 PCs
+* 4 Printers
+
+#### Research Department
+
+* 20 PCs
+* 4 Printers
+
+#### Human Resources Department
+
+* 20 PCs
+* 4 Printers
+
+---
+
+### Second Floor
+
+#### Marketing Department
+
+* 20 PCs
+* 4 Printers
+
+#### Accounting Department
+
+* 20 PCs
+* 4 Printers
+
+#### Finance Department
+
+* 20 PCs
+* 4 Printers
+
+---
+
+### Third Floor
+
+#### Logistics and Store Department
+
+* 20 PCs
+* 4 Printers
+
+#### Customer Care Department
+
+* 20 PCs
+* 4 Printers
+
+#### Guest Area
+
+* 20 PCs
+* 2 Printers
+
+---
+
+### Fourth Floor
+
+#### Administration Department
+
+* 20 PCs
+* 2 Printers
+
+#### ICT Department
+
+* 20 PCs
+* 2 Printers
+
+#### Server Room
+
+Infrastructure:
+
+* DHCP Server
+* Web Server
+* Email Server
+* Administrative Workstations
+
+---
+
+## Network Architecture
+
+The design follows a three-tier hierarchical enterprise model.
+
+### Core Layer
+
+Responsible for:
+
+* High-speed backbone connectivity
+* Routing between floors
+* OSPF route propagation
+
+### Distribution Layer
+
+Responsible for:
+
+* VLAN routing
+* Policy enforcement
+* Aggregation of access switches
+
+### Access Layer
+
+Responsible for:
+
+* End-user connectivity
+* Department switches
+* Wireless access points
+
+---
+
+## Technologies Implemented
+
+### Enterprise Network Design
+
+* Hierarchical Network Architecture
+* Redundant Network Design
+* Multi-Floor Enterprise Deployment
+
+### Routing Technologies
+
+* OSPF Dynamic Routing
+* Router-to-Router Communication
+
+### Switching Technologies
+
+* VLAN Segmentation
+* Inter-VLAN Communication
+
+### Network Services
+
+* DHCP Services
+* HTTP Web Services
+* Email Services
+
+### Wireless Technologies
+
+* Department Wireless Networks
+* Cisco Wireless Access Points
+
+### Management Technologies
+
+* SSH Remote Administration
+* Device Hardening
+
+---
+
+## VLAN Design
+
+Each department was assigned an independent VLAN.
+
+| VLAN     | Department          |
+| -------- | ------------------- |
+| VLAN 10  | Management          |
+| VLAN 20  | Research            |
+| VLAN 30  | Human Resources     |
+| VLAN 40  | Marketing           |
+| VLAN 50  | Accounting          |
+| VLAN 60  | Finance             |
+| VLAN 70  | Logistics and Store |
+| VLAN 80  | Customer Care       |
+| VLAN 90  | Guest Area          |
+| VLAN 100 | Administration      |
+| VLAN 110 | ICT                 |
+| VLAN 120 | Server Room         |
+
+---
+
+## IP Addressing Plan
+
+### Base Network
+
+192.168.10.0/24
+
+Subnetting was performed using VLSM to allocate address space efficiently across departments while supporting both wired and wireless users.
+
+### Routing Network
+
+10.10.10.0/24
+
+Used for router-to-router communication and routing infrastructure.
+
+---
+
+## Services Implemented
+
+### DHCP Server
+
+Provides:
+
+* Dynamic IPv4 Address Allocation
+* Default Gateway Distribution
+* DNS Information Distribution
+
+### HTTP Server
+
+Provides:
+
+* Internal Company Website
+* Web-Based Services
+
+### Email Server
+
+Provides:
+
+* Internal Organizational Email Communication
+
+---
+
+## Routing Design
+
+OSPF was deployed across all routing devices to provide:
+
+* Dynamic Route Advertisement
+* Fast Convergence
+* Scalable Network Expansion
+
+All routers participate in OSPF and exchange routes automatically.
+
+---
+
+## Wireless Infrastructure
+
+Each department contains a dedicated wireless network allowing users to connect through:
+
+* Laptops
+* Smartphones
+* Wireless Workstations
+
+The wireless deployment complements the wired infrastructure while maintaining departmental segmentation.
+
+---
+
+## Security Features
+
+### SSH Remote Management
+
+SSH was configured on all routers to provide:
+
+* Encrypted Remote Access
+* Secure Device Administration
+
+### Device Hardening
+
+Implemented:
+
+* Hostnames
+* Console Passwords
+* VTY Passwords
+* Enable Secrets
+* Login Banners
+* Disabled DNS Lookup
+
+---
+
+## Testing and Verification
+
+The following tests were successfully completed:
+
+* DHCP Address Assignment
+* OSPF Neighbor Formation
+* Same VLAN Communication
+* Inter-VLAN Communication
+* End-to-End Connectivity
+* HTTP Server Access
+* Email Server Communication
+* SSH Remote Login
+* Wireless Connectivity Testing
+
+All configured services were tested and verified successfully.
+
+---
+
+## Skills Demonstrated
+
+* Enterprise Network Design
+* Hierarchical Architecture Design
+* VLAN Segmentation
+* Inter-VLAN Routing
+* OSPF Routing
+* DHCP Administration
+* Email Server Deployment
+* Web Server Deployment
+* Wireless Network Design
+* SSH Configuration
+* Enterprise Documentation
+* Cisco Packet Tracer
+* Network Troubleshooting
+
+---
+
+## Repository Structure
+
+```text
+radeon-enterprise-network/
+│
+├── README.md
+├── Radeon_Enterprise_Network.pkt
+├── Radeon_Project_Report.pdf
+├── topology.png
+
+---
+
+## Author
+
+Chibuike Obika
+
+Enterprise Network Engineering Portfolio Project
